@@ -1,0 +1,10 @@
+.comment {
+  border-top: dotted 1px #ddd;
+  font-size: 0.7em;
+}
+
+.crs-div-1 {
+  margin-left: 5%;
+  padding: 20px;
+  height: 1000px;
+}

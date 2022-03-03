@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- <div class="container my-3 crs-div-1"> -->
+    <div class="container crs-div-1">
+<table class="table table-striped table-bordered table-hover table-sm mt-3">
+        <caption></caption>
+        <thead>
+            <tr>
+                <th>과목이름</th>
+                <th>생성일</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if subject_list %}
+
+        {% for subject in subject_list %}
+            <tr>
+                <td>{{ subject.subject_name }}</td>
+                <td>{{ subject.create_date }}</td>
+            </tr>
+        {% endfor %}
+        {% else %}
+            <p>데이터 없음</p>
+        {% endif %}
+
+        </tbody>
+    </table>
+ <a href="{% url 'CRS:subject_create' %}" class="btn btn-primary">추가</a>
+</div>
+
+
+{% endblock %}

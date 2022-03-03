@@ -1,0 +1,20 @@
+<ul>
+      {% if user.is_authenticated %} 
+       {% if user.user_type == '1' %}
+       <li><a href="{% url 'CRS:subject_list' %}">과목</a></li>
+       <li><a class="justify-content-end navbar-right">{{ user.username }} (교수)</a></li>
+       <li><a class="justify-content-end navbar-right"  href="{% url 'CRS:logout' %}">로그아웃</a></li> 
+       {% elif user.user_type == '2' %}
+       <li><a href="{% url 'CRS:signup_list' %}">수강신청</a></li>
+       <li><a class="justify-content-end navbar-right">{{ user.username }} (학생)</a></li>
+      <li><a class="justify-content-end navbar-right"  href="{% url 'CRS:logout' %}">로그아웃</a></li> 
+       {% else %} 
+       <li><a href="{% url 'CRS:professor_list' %}">교수</a></li>
+      <li><a href="{% url 'CRS:student_list' %}">학생</a></li>
+        <li><a class="justify-content-end navbar-right"> {{ user.username }} (관리자)</a></li>
+        <li><a class="justify-content-end navbar-right"  href="{% url 'CRS:logout' %}">로그아웃</a></li> 
+       {% endif %}
+      {% else %}
+      <li><a class="justify-content-end navbar-right"  href="{% url 'CRS:login' %}">로그인</a></li> 
+      {% endif %}
+</ul>

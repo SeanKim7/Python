@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<script>
+	function Chk() {
+		var result = Array();
+		var cnt = 0;
+		var chkbox = $(".chkselect");
+
+		for(i=0;i<chkbox.length;i++) {
+			if(chkbox[i].checked == true) {
+				result[cnt] = chkbox[i].value;
+				cnt++;
+			}
+		}
+		$('#id_lecture_time').val(result);
+	}
+</script>
+
+<div class="container">
+    <h5 class="my-3 border-bottom pb-2">등록</h5>
+    <form method="post" class="post-form my-3">
+        {% csrf_token %}
+        <p>
+        <label for="id_subject_name">과목이름:</label> <input type="text" name="subject_name" required="" id="id_subject_name" placeholder="ex) 컴퓨터언어및실습">
+    </p>
+    <p><label for="id_maximum_num">최대인원 :</label><input type="number" name="maximum_num" min="10" max="80" required="" id="id_maximum_num" value=30></p>
+
+    <p><label for="id_lecture_day">강의요일 :</label>
+        <input type="radio" name="lecture_day" value="0" id="id_lecture_day" checked>월
+        <input type="radio" name="lecture_day" value="1" id="id_lecture_day">화
+        <input type="radio" name="lecture_day" value="2" id="id_lecture_day">수
+        <input type="radio" name="lecture_day" value="3" id="id_lecture_day">목
+        <input type="radio" name="lecture_day" value="4" id="id_lecture_day">금
+    </p>
+
+    <p><label for="id_lecture_time">강의시간 :</label> 
+        <input type="checkbox" name="chk[]" class='chkselect' onclick='Chk();' value="1100000000">1교시
+        <input type="checkbox" name="chk[]" class='chkselect' onclick='Chk();' value="1010000000">2교시
+        <input type="checkbox" name="chk[]" class='chkselect' onclick='Chk();' value="1001000000">3교시
+        <input type="checkbox" name="chk[]" class='chkselect' onclick='Chk();' value="1000100000">4교시
+        <input type="checkbox" name="chk[]" class='chkselect' onclick='Chk();' value="1000010000">5교시
+        <input type="checkbox" name="chk[]" class='chkselect' onclick='Chk();' value="1000001000">6교시
+        <input type="checkbox" name="chk[]" class='chkselect' onclick='Chk();' value="1000000100">7교시
+        <input type="checkbox" name="chk[]" class='chkselect' onclick='Chk();' value="1000000010">8교시
+        <input type="checkbox" name="chk[]" class='chkselect' onclick='Chk();' value="1000000001">9교시
+    </p>
+    <input type='hidden' id='id_lecture_time' name='lecture_time'>
+      
+     <p><label for="lecture_room">강의실 :</label>
+        
+        <select name="lecture_room" id="id_lecture_room">
+            <option value="본관101">본관101</option>
+            <option value="본관102">본관102</option>
+            <option value="복지관101">복지관101</option>
+            <option value="복지관102">복지관102</option>
+        </select>
+    </p>
+
+        
+        <button type="submit" class="btn btn-primary">저장하기</button>
+    </form>
+</div>
+{% endblock %}

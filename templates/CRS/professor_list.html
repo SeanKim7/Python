@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container crs-div-1">
+<table class="table table-striped table-bordered table-hover table-sm mt-3">
+    <caption></caption>
+        <thead>
+            <tr>
+                <th>교수명</th>
+                <th>교번</th>
+                <th>이메일</th>
+                <th>전화번호</th>
+                <th>생성일</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if professor_list %}
+
+        {% for professor in professor_list %}
+            <tr>
+                <td><a href="{% url 'CRS:professor_detail' professor.professor_no %}">{{ professor.name }}</a></td>
+                <td>{{ professor.professor_no }}</td>
+                <td>{{ professor.email }}</td>
+                <td>{{ professor.telno }}</td>
+                <td>{{ professor.create_date }}</td>
+            </tr>
+        {% endfor %}
+        {% else %}
+            <p>데이터 없음</p>
+        {% endif %}
+
+
+        </tbody>
+    </table>
+ <a href="{% url 'CRS:professor_create' %}" class="btn btn-primary">등록</a>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h5 class="my-3 border-bottom pb-2">등록</h5>
+    <form method="post" class="post-form my-3">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        이메일 : <input type="email" name="userEmail"><br>
+        이름 : <input type="text" name="userName"><br>
+        전화번호 : <input type="tel" name="userTel"><br>
+        <button type="submit" class="btn btn-primary">저장하기</button>
+    </form>
+</div>
+{% endblock %}

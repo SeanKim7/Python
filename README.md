@@ -1,2 +1,2 @@
-# Python
-컴퓨터 언어 및 실습
+# CRS_project
+수강신청 시스템

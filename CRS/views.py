@@ -88,7 +88,7 @@ def student_detail(request, student_id):
     """
     학생 내용 출력
     """
-    student = Student.objects.get(id=student_id)
+    student = Student.objects.get(student_no=student_id)
     context = {'student': student}
     return render(request, 'CRS/student_detail.html', context)
 

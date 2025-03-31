@@ -15,7 +15,6 @@
         </thead>
         <tbody>
         {% if student_list %}
-
         {% for student in student_list %}
             <tr>
                 <td><a href="{% url 'CRS:student_detail' student.student_no %}">{{ student.name }}</a></td>
@@ -28,8 +27,6 @@
         {% else %}
             <p>데이터 없음</p>
         {% endif %}
-
-
         </tbody>
     </table>
  <a href="{% url 'CRS:student_create' %}" class="btn btn-primary">등록</a>

@@ -22,7 +22,7 @@ def index(request):
 
 
 def professor_list(request):
-    """
+    """ 
     교수 리스트 출력
     """
     professor_list = Professor.objects.order_by('-create_date')
@@ -75,9 +75,7 @@ def professor_create(request):
 
 
 def student_list(request):
-    """
-    학생 리스트 출력
-    """
+    """    학생 리스트 출력    """
     print("학생 리스트 출력 !!!")
     student_list = Student.objects.order_by('-create_date')
     context = {'student_list': student_list}
